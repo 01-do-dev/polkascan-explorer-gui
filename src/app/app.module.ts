@@ -235,7 +235,11 @@ export class MyClock extends TimeagoClock {
     Angulartics2Module.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ExtrinsicTableComponent,
+    Phala__ExtrinsicTableComponent,
+  ]
 })
 export class AppModule { }
 

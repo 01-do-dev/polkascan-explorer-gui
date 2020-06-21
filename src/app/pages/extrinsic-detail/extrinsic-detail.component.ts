@@ -20,14 +20,14 @@
  * extrinsic-detail.component.ts
  */
 
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Subscription} from 'rxjs';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {switchMap} from 'rxjs/operators';
-import {Extrinsic} from '../../classes/extrinsic.class';
-import {ExtrinsicService} from '../../services/extrinsic.service';
-import {AppConfigService} from '../../services/app-config.service';
-import hasPhalaAttr from 'src/app/utils/hasPhalaAttr';
+import { Component, OnDestroy, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef, Type } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { Extrinsic } from '../../classes/extrinsic.class';
+import { ExtrinsicService } from '../../services/extrinsic.service';
+import { AppConfigService } from '../../services/app-config.service';
+import { getDetailPageByAttr } from 'src/app/utils/extrinsic-route';
 
 @Component({
   selector: 'app-extrinsic-detail',
@@ -36,8 +36,8 @@ import hasPhalaAttr from 'src/app/utils/hasPhalaAttr';
 })
 export class ExtrinsicDetailComponent implements OnInit, OnDestroy {
 
+  @ViewChild('extrinsicTable', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
   extrinsic$: Observable<Extrinsic>;
-  isPhalaExtrinsic: Boolean;
   public notFound = false;
 
   private networkSubscription: Subscription;
@@ -48,11 +48,12 @@ export class ExtrinsicDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private extrinsicService: ExtrinsicService,
-    private appConfigService: AppConfigService
+    private appConfigService: AppConfigService,
+    private resolver: ComponentFactoryResolver
   ) { }
 
   ngOnInit() {
-    this.networkSubscription = this.appConfigService.getCurrentNetwork().subscribe( network => {
+    this.networkSubscription = this.appConfigService.getCurrentNetwork().subscribe(network => {
       this.networkURLPrefix = this.appConfigService.getUrlPrefix();
 
       this.networkTokenDecimals = +network.attributes.token_decimals;
@@ -69,20 +70,35 @@ export class ExtrinsicDetailComponent implements OnInit, OnDestroy {
         return this.extrinsicService.get(params.get('id'));
       })
     );
-    
-    this.extrinsic$.subscribe({next(value) {
-      _this.getHasPhalaAttr(value);
-    }, error(err) {
+
+    this.extrinsic$.subscribe({
+      next(value) {
+        _this.loadSubComponent(value);
+      }, error(err) {
         console.log(err.status === 404);
         if (err.status === 404) {
-            this.notFound = true;
+          this.notFound = true;
         }
-      }});
+      }
+    });
 
   }
 
-  getHasPhalaAttr(value) {
-    this.isPhalaExtrinsic = hasPhalaAttr(value.attributes);
+  loadSubComponent(value) {
+    if (!(value && value.attributes)) {
+      return;
+    }
+
+    this.viewContainer.clear();
+
+    const componentFactory = this.resolver.resolveComponentFactory<Component>(
+      getDetailPageByAttr(value.attributes) as Type<Component>
+    );
+    const componentRef = this.viewContainer.createComponent(componentFactory);
+    (componentRef.instance as any).extrinsic = value;
+    (componentRef.instance as any).networkURLPrefix = this.networkURLPrefix;
+    (componentRef.instance as any).networkTokenDecimals = this.networkTokenDecimals;
+    (componentRef.instance as any).networkTokenSymbol = this.networkTokenSymbol;
   }
 
   ngOnDestroy() {
