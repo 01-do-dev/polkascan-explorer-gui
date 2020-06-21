@@ -123,6 +123,8 @@ import { PreimageTableComponent } from './components/preimage-table/preimage-tab
 import { AddressComponent } from './components/address/address.component';
 import {MarkdownModule} from 'ngx-markdown';
 import { ExtrinsicParamDownloadComponent } from './pages/extrinsic-param-download/extrinsic-param-download.component';
+import { ExtrinsicListItemComponent } from './components/extrinsic-list-item/extrinsic-list-item.component';
+import { Phala__ExtrinsicListItemComponent } from './components/extrinsic-list-item.phala/extrinsic-list-item.phala.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -206,7 +208,9 @@ export class MyClock extends TimeagoClock {
     DemocracyPreimageDetailComponent,
     PreimageTableComponent,
     AddressComponent,
-    ExtrinsicParamDownloadComponent
+    ExtrinsicParamDownloadComponent,
+    ExtrinsicListItemComponent,
+    Phala__ExtrinsicListItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -239,6 +243,8 @@ export class MyClock extends TimeagoClock {
   entryComponents: [
     ExtrinsicTableComponent,
     Phala__ExtrinsicTableComponent,
+    ExtrinsicListItemComponent,
+    Phala__ExtrinsicListItemComponent
   ]
 })
 export class AppModule { }

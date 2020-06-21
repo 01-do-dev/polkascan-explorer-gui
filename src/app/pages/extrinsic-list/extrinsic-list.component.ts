@@ -20,12 +20,13 @@
  * extrinsic-list.component.ts
  */
 
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef, ViewChildren, QueryList, ComponentFactoryResolver, Type} from '@angular/core';
 import {DocumentCollection, Service} from 'ngx-jsonapi';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {Extrinsic} from '../../classes/extrinsic.class';
 import {Subscription} from 'rxjs';
 import {AppConfigService} from '../../services/app-config.service';
+import { getListItemByAttr } from 'src/app/utils/extrinsic-route';
 
 @Component({
   selector: 'app-extrinsic-list',
@@ -34,6 +35,7 @@ import {AppConfigService} from '../../services/app-config.service';
 })
 export class ExtrinsicListComponent implements OnInit, OnDestroy {
 
+  @ViewChildren('extrinsicList', { read: ViewContainerRef }) public viewContainers: QueryList<ViewContainerRef>;
   public extrinsics: DocumentCollection<Extrinsic>;
   currentPage = 1;
   signedOnly = true;
@@ -44,7 +46,8 @@ export class ExtrinsicListComponent implements OnInit, OnDestroy {
 
   constructor(
     private extrinsicService: ExtrinsicService,
-    private appConfigService: AppConfigService
+    private appConfigService: AppConfigService,
+    private resolver: ComponentFactoryResolver
   ) {
 
   }
@@ -69,13 +72,8 @@ export class ExtrinsicListComponent implements OnInit, OnDestroy {
     }
 
     this.extrinsicService.all(params).subscribe(extrinsics => {
-      extrinsics.data.forEach(i => {
-        if (typeof i.isPhalaExtrinsic === 'boolean') {
-          return;
-        }
-        i.isPhalaExtrinsic = false;
-      })
       this.extrinsics = extrinsics;
+      this.renderList(extrinsics.data)
     });
   }
 
@@ -88,8 +86,21 @@ export class ExtrinsicListComponent implements OnInit, OnDestroy {
     this.refreshExtrinsics();
   }
 
+  renderList(extrinsics: Extrinsic[]) {
+    if (!extrinsics.length) {
+      return
+    }
+    (this.viewContainers || []).forEach((target, index) => {
+      const componentFactory = this.resolver.resolveComponentFactory<Component>(
+        getListItemByAttr(extrinsics[index].attributes) as Type<Component>
+      );
+      const componentRef = target.createComponent(componentFactory);
+      (componentRef.instance as any).extrinsic = extrinsics[index];
+      (componentRef.instance as any).networkURLPrefix = this.networkURLPrefix;
+    });
+  }
+
   ngOnDestroy() {
-    // Will clear when component is destroyed e.g. route is navigated away from.
     this.networkSubscription.unsubscribe();
   }
 }

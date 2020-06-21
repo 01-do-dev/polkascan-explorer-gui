@@ -36,7 +36,7 @@ import { getDetailPageByAttr } from 'src/app/utils/extrinsic-route';
 })
 export class ExtrinsicDetailComponent implements OnInit, OnDestroy {
 
-  @ViewChild('extrinsicTable', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
+  @ViewChild('extrinsicTable', { read: ViewContainerRef }) public viewContainer: ViewContainerRef;
   extrinsic$: Observable<Extrinsic>;
   public notFound = false;
 
