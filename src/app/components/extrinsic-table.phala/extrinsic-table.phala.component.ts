@@ -32,13 +32,55 @@ import {ExtrinsicService} from '../../services/extrinsic.service';
 })
 export class Phala__ExtrinsicTableComponent implements OnInit {
 
-  @Input() extrinsic: Extrinsic = null;
+  _extrinsic: Extrinsic = null;
+  contractId = null;
+  payload = null;
+  encodedRuntimeInfo = null;
+  report = null;
+  signature = null;
+  rawSigningCert = null;
+
   @Input() extrinsicId: string = null;
   @Input() context: string = null;
   @Input() networkURLPrefix: string = null;
   @Input() networkTokenDecimals = 0;
   @Input() networkTokenSymbol: string ;
   @Input() title: string;
+
+  @Input() set extrinsic(extrinsic: Extrinsic) {
+    this._extrinsic = extrinsic;
+    if (extrinsic.attributes.call_id === 'push_command') {
+      (extrinsic.attributes.params || []).forEach(i => {
+        if (i.name === 'contract_id') {
+          this.contractId = i;
+        }
+        if (i.name === 'payload') {
+          this.payload = i;
+        }
+      });
+    }
+    if (extrinsic.attributes.call_id === 'register_worker') {
+      (extrinsic.attributes.params || []).forEach(i => {
+        if (i.name === 'encoded_runtime_info') {
+          this.encodedRuntimeInfo = i;
+        }
+        if (i.name === 'report') {
+          this.report = i;
+        }
+        if (i.name === 'signature') {
+          this.signature = i;
+        }
+        if (i.name === 'raw_signing_cert') {
+          this.rawSigningCert = i;
+        }
+      });
+    }
+    console.log(extrinsic)
+  };
+
+  get extrinsic (): Extrinsic {
+    return this._extrinsic;
+  }
 
   constructor(
     private location: Location,

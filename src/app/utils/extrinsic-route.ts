@@ -12,8 +12,12 @@ type ExtrinsicRoute = {
 
 const extrinsicRoutes = {
   modules: {
-    authorship: {
-      set_uncles: {
+    phalamodule: {
+      push_command: {
+        listItem: Phala__ExtrinsicListItemComponent,
+        detailPage: Phala__ExtrinsicTableComponent
+      } as ExtrinsicRoute,
+      register_worker: {
         listItem: Phala__ExtrinsicListItemComponent,
         detailPage: Phala__ExtrinsicTableComponent
       } as ExtrinsicRoute,
@@ -27,7 +31,7 @@ const extrinsicRoutes = {
 
 function getRoute (attr: Extrinsic["attributes"]): ExtrinsicRoute {
   try {
-    return extrinsicRoutes.modules[attr.module_id][attr.call_id];
+    return extrinsicRoutes.modules[attr.module_id][attr.call_id] || extrinsicRoutes.default;
   } catch (e) {
     return extrinsicRoutes.default;
   }
