@@ -49,6 +49,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ExtrinsicDetailComponent } from './pages/extrinsic-detail/extrinsic-detail.component';
 import { ExtrinsicTableComponent } from './components/extrinsic-table/extrinsic-table.component';
+import { Phala__ExtrinsicTableComponent } from './components/extrinsic-table.phala/extrinsic-table.phala.component';
 import { HarvesterAdminComponent } from './pages/harvester-admin/harvester-admin.component';
 import { LoadingBoxComponent } from './components/loading-box/loading-box.component';
 import { PolkascanHeaderComponent } from './components/polkascan-header/polkascan-header.component';
@@ -139,6 +140,7 @@ export class MyClock extends TimeagoClock {
     SettingsComponent,
     ExtrinsicDetailComponent,
     ExtrinsicTableComponent,
+    Phala__ExtrinsicTableComponent,
     HarvesterAdminComponent,
     LoadingBoxComponent,
     PolkascanHeaderComponent,

@@ -38,13 +38,13 @@ export const environment = {
   //   colorCode: null
   // }
   jsonApiDiscoveryRootUrl: null,
-  jsonApiRootUrl: 'https://api-02.polkascan.io/kusama/api/v1',
+  jsonApiRootUrl: 'https://poc2-1.phala.network/scan',
   network: {
-    name: 'Kusama',
-    networkId: 'kusama',
+    name: 'Phala',
+    networkId: 'phala',
     networkType: 'pre',
     chainType: 'relay',
-    tokenSymbol: 'KSM',
+    tokenSymbol: 'PHA',
     tokenDecimals: 12,
     colorCode: 'd32e79'
   }

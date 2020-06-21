@@ -27,6 +27,7 @@ import {switchMap} from 'rxjs/operators';
 import {Extrinsic} from '../../classes/extrinsic.class';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {AppConfigService} from '../../services/app-config.service';
+import hasPhalaAttr from 'src/app/utils/hasPhalaAttr';
 
 @Component({
   selector: 'app-extrinsic-detail',
@@ -36,6 +37,7 @@ import {AppConfigService} from '../../services/app-config.service';
 export class ExtrinsicDetailComponent implements OnInit, OnDestroy {
 
   extrinsic$: Observable<Extrinsic>;
+  isPhalaExtrinsic: Boolean;
   public notFound = false;
 
   private networkSubscription: Subscription;
@@ -55,26 +57,32 @@ export class ExtrinsicDetailComponent implements OnInit, OnDestroy {
 
       this.networkTokenDecimals = +network.attributes.token_decimals;
       this.networkTokenSymbol = network.attributes.token_symbol;
-
       this.getExtrinsic();
     });
   }
 
   getExtrinsic() {
+    const _this = this;
 
     this.extrinsic$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         return this.extrinsicService.get(params.get('id'));
       })
     );
-
-    this.extrinsic$.subscribe({next(value) {}, error(err) {
+    
+    this.extrinsic$.subscribe({next(value) {
+      _this.getHasPhalaAttr(value);
+    }, error(err) {
         console.log(err.status === 404);
         if (err.status === 404) {
             this.notFound = true;
         }
       }});
 
+  }
+
+  getHasPhalaAttr(value) {
+    this.isPhalaExtrinsic = hasPhalaAttr(value.attributes);
   }
 
   ngOnDestroy() {

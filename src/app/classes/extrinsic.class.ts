@@ -30,9 +30,9 @@ export class Extrinsic extends Resource {
     call_id: 'call_id',
     extrinsic_hash: 'extrinsic_hash'
   };
-
-   public relationships = {
-        account: new DocumentResource<Account>(),
-        events: new DocumentCollection<Event>(),
-    };
+  public isPhalaExtrinsic: Boolean;
+  public relationships = {
+      account: new DocumentResource<Account>(),
+      events: new DocumentCollection<Event>(),
+  };
 }

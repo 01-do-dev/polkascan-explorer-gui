@@ -19,8 +19,15 @@
               </div>
            </div>
          </div>
-
+        <app-extrinsic-table-phala
+          *ngIf="isPhalaExtrinsic"
+          [extrinsic]="extrinsic$ | async"
+          [networkURLPrefix]="networkURLPrefix"
+          [networkTokenDecimals]="networkTokenDecimals"
+          [networkTokenSymbol]="networkTokenSymbol"
+        ></app-extrinsic-table-phala>
         <app-extrinsic-table
+          *ngIf="!isPhalaExtrinsic"
           [extrinsic]="extrinsic$ | async"
           [networkURLPrefix]="networkURLPrefix"
           [networkTokenDecimals]="networkTokenDecimals"

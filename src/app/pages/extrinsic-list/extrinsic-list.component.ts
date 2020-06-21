@@ -26,6 +26,7 @@ import {ExtrinsicService} from '../../services/extrinsic.service';
 import {Extrinsic} from '../../classes/extrinsic.class';
 import {Subscription} from 'rxjs';
 import {AppConfigService} from '../../services/app-config.service';
+import hasPhalaAttr from 'src/app/utils/hasPhalaAttr';
 
 @Component({
   selector: 'app-extrinsic-list',
@@ -69,6 +70,12 @@ export class ExtrinsicListComponent implements OnInit, OnDestroy {
     }
 
     this.extrinsicService.all(params).subscribe(extrinsics => {
+      extrinsics.data.forEach(i => {
+        if (typeof i.isPhalaExtrinsic === 'boolean') {
+          return;
+        }
+        i.isPhalaExtrinsic = hasPhalaAttr(i.attributes);
+      })
       this.extrinsics = extrinsics;
     });
   }
