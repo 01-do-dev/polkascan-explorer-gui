@@ -432,6 +432,7 @@
 		"item_Council Accounts": "Council",
 		"item_CouncilMotions": "议会议案",
 		"item_Events": "活动",
+		"item_Gatekeeper Accounts": "守门人",
 		"item_Identities": "Identities",
 		"item_Indices": "指数",
 		"item_Inherents": "内在因素",
@@ -454,7 +455,6 @@
 		"item_TreasuryProposals": "财政提案",
 		"item_Types": "类型",
 		"item_Upgrade_history": "升级历史记录",
-		"item_Validator Accounts": "验证人",
 		"item_Validators": "验证人"
 	},
 	"Network-overview": {

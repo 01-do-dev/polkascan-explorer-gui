@@ -48,7 +48,7 @@
 		"Member was kicked from council": "Member was kicked from council",
 		"Module": "Module",
 		"No extrinsics found for this account": "No extrinsics found for this account",
-		"Nominated { amount } validators": "Nominated { amount } validators",
+		"Nominated { amount } validators": "Nominated { amount } gatekeepers",
 		"Nonce": "Nonce",
 		"Past": "Past",
 		"Past Roles": "Past Roles",
@@ -68,7 +68,7 @@
 		"Role_Sudo": "Sudo",
 		"Role_Technical Committee member": "Technical Committee member",
 		"Role_Treasury": "Treasury",
-		"Role_Validator": "Validator",
+		"Role_Validator": "Gatekeeper",
 		"Roles": "Roles",
 		"Seconds a proposal": "Seconds a proposal",
 		"Sender": "From",
@@ -126,7 +126,7 @@
 		"Total balance": "Total balance",
 		"Transactions": "Transactions",
 		"Treasury accounts": "Treasuries",
-		"Validators": "Validators",
+		"Validators": "Gatekeepers",
 		"View next": "View next"
 	},
 	"AddressDetail": {
@@ -432,6 +432,7 @@
 		"item_Council Accounts": "Council",
 		"item_CouncilMotions": "Council Motions",
 		"item_Events": "Events",
+		"item_Gatekeeper Accounts": "Gatekeepers",
 		"item_Identities": "Identities",
 		"item_Indices": "Indices",
 		"item_Inherents": "Inherents",
@@ -454,8 +455,7 @@
 		"item_TreasuryProposals": "Treasury Proposals",
 		"item_Types": "Types",
 		"item_Upgrade_history": "Upgrade history",
-		"item_Validator Accounts": "Validators",
-		"item_Validators": "Validators"
+		"item_Validators": "Gatekeepers"
 	},
 	"Network-overview": {
 		"Explore": "Explore",
@@ -675,7 +675,7 @@
 		"Session": "Session",
 		"Start at block": "Start at block",
 		"Total bonded": "Total bonded",
-		"Validators": "Validators"
+		"Validators": "Gatekeepers"
 	},
 	"session-list": {
 		"Blocks": "Blocks",
@@ -684,7 +684,7 @@
 		"Session ID": "Session ID",
 		"Sessions": "Sessions",
 		"Start at Block": "Start at Block",
-		"Validators": "Validators",
+		"Validators": "Gatekeepers",
 		"View next": "View next"
 	},
 	"session-nominator-list": {
@@ -704,7 +704,7 @@
 		"No nominators for this validator": "No nominators for this validator",
 		"Nominators": "Nominators",
 		"Stash account": "Stash account",
-		"Validator": "Validator",
+		"Validator": "Gatekeeper",
 		"for session": "for session",
 		"nominators": "Nominators"
 	},
@@ -713,7 +713,7 @@
 		"Details": "Details",
 		"No items": "No items",
 		"Total bonded": "Total bonded",
-		"Validators for current session": "Validators for current session"
+		"Validators for current session": "Gatekeepers for current session"
 	},
 	"transaction-detail": {
 		"No transaction found for hash": "No transaction found for hash",

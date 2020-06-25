@@ -134,7 +134,7 @@ const routes: Routes = [
       { path: 'runtime-constant/:id', component: RuntimeConstantDetailComponent},
       { path: 'runtime-type', component: RuntimeTypeListComponent},
       { path: 'account', component: AccountListComponent},
-      { path: 'account/validators', component: AccountListComponent, data: {filter: 'is_validator', title: 'Validators'}},
+      { path: 'account/gatekeepers', component: AccountListComponent, data: {filter: 'is_validator', title: 'Gatekeepers'}},
       { path: 'account/nominators', component: AccountListComponent, data: {filter: 'is_nominator', title: 'Nominators'}},
       { path: 'account/council', component: AccountListComponent, data: {filter: 'is_council_member', title: 'Council members'}},
       { path: 'account/tech-comm', component: AccountListComponent, data: {filter: 'is_tech_comm_member', title: 'Technical committee members'}},

@@ -38,15 +38,15 @@ export const environment = {
   //   colorCode: null
   // }
   jsonApiDiscoveryRootUrl: null,
-  jsonApiRootUrl: 'https://poc2-1.phala.network/scan',
+  jsonApiRootUrl: 'https://explorer.phala.network/scan',
   network: {
     name: 'Phala',
     networkId: 'phala',
     networkType: 'pre',
-    chainType: 'relay',
+    chainType: 'para',
     tokenSymbol: 'PHA',
     tokenDecimals: 12,
-    colorCode: 'd32e79'
+    colorCode: 'ffffff'
   }
 };
 

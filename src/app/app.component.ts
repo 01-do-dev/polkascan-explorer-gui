@@ -38,12 +38,12 @@ import {environment} from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Polkascan';
+  title = 'Phala Network';
 
   public currentNetwork;
   public showNavigation = false;
   public showSubmenus = true;
-  public langs = ['en', 'zh', 'ko', 'ru', 'uk', 'hi', 'pt'];
+  public langs = ['en', 'zh'];
   public selectedLanguage = 'en';
 
   public networks: DocumentCollection<Network>;
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
     translate.addLangs(this.langs);
     translate.setDefaultLang('en');
 
-    this.selectedLanguage = translate.getBrowserLang().match(/en|zh|ko|ru|uk|hi|pt/) ? translate.getBrowserLang() : 'en';
+    this.selectedLanguage = translate.getBrowserLang().match(/en|zh/) ? translate.getBrowserLang() : 'en';
     translate.use(this.selectedLanguage);
   }
 
@@ -112,34 +112,34 @@ export class AppComponent implements OnInit, OnDestroy {
 
   langsTitle(selectedLang: string) {
     switch (selectedLang) {
-      case 'de':
-        return 'Deutsche';
-      case 'fr':
-        return 'Française';
-      case 'it':
-        return 'Italiano';
-      case 'es':
-        return 'Español';
+      // case 'de':
+      //   return 'Deutsche';
+      // case 'fr':
+      //   return 'Française';
+      // case 'it':
+      //   return 'Italiano';
+      // case 'es':
+      //   return 'Español';
       case 'zh':
         return '简体中文';
-      case 'ja':
-        return '日本語';
-      case 'ko':
-        return '한국어';
-      case 'nl':
-        return 'Nederlands';
-      case 'pt':
-        return 'Português';
-      case 'ru':
-        return 'Русский';
-      case 'th':
-        return 'ภาษาไทย';
-      case 'tr':
-        return 'Türkçe';
-      case 'uk':
-        return 'Українська';
-      case 'hi':
-        return 'हिन्दी';
+      // case 'ja':
+      //   return '日本語';
+      // case 'ko':
+      //   return '한국어';
+      // case 'nl':
+      //   return 'Nederlands';
+      // case 'pt':
+      //   return 'Português';
+      // case 'ru':
+      //   return 'Русский';
+      // case 'th':
+      //   return 'ภาษาไทย';
+      // case 'tr':
+      //   return 'Türkçe';
+      // case 'uk':
+      //   return 'Українська';
+      // case 'hi':
+      //   return 'हिन्दी';
       default:
         return 'English';
     }

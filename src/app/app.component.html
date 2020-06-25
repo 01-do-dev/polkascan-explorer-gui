@@ -21,7 +21,7 @@
       <div class="container">
           <div class="navbar-brand">
               <a class="navbar-item brand-text" routerLink="/" (click)="resetNetwork()">
-                <img src="assets/logo.png" width="120">
+                <img src="assets/logo.png" style="max-height: 2.5rem;">
               </a>
               <div class="is-hidden-desktop network-name">
                 <i *ngIf="currentNetwork?.attributes.chain_type == 'para'" class="fa fa-project-diagram network-icon current-network"  [style.color]="'#' + currentNetwork?.attributes.color_code" title="Parachain"></i>
@@ -36,7 +36,7 @@
           </div>
           <div id="navMenu-networks" class="navbar-menu" [ngClass]="{'is-active': showNavigation}">
             <div class="navbar-end">
-                <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
+                <!-- <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                   <a class="navbar-link is-hidden-touch">
                     <i *ngIf="currentNetwork?.attributes.chain_type == 'para'" class="fa fa-project-diagram network-icon current-network"  [style.color]="'#' + currentNetwork?.attributes.color_code" title="Parachain"></i>
                     <i *ngIf="currentNetwork?.attributes.chain_type == 'relay'" class="fa fa-globe network-icon current-network" [style.color]="'#' + currentNetwork?.attributes.color_code" title="Relay chain"></i>
@@ -49,7 +49,7 @@
                       {{ network.attributes.name }}
                     </a>
                   </div>
-                </div>
+                </div> -->
                 <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                   <a class="navbar-link">
                       <i class="fa fa-language language-icon" aria-hidden="true"></i> {{ langsTitle(selectedLanguage) }}
