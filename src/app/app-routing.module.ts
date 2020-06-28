@@ -142,6 +142,7 @@ const routes: Routes = [
       { path: 'account/treasury', component: AccountListComponent, data: {filter: 'is_treasury', title: 'Treasury accounts'}},
       { path: 'account/sudo', component: AccountListComponent, data: {filter: 'is_sudo', title: 'Sudo accounts'}},
       { path: 'account/identities', component: AccountListComponent, data: {filter: 'has_identity', title: 'Accounts with identity'}},
+      { path: 'account/registered', component: AccountListComponent, data: {title: 'Registered Workers'}},
       { path: 'account/:id', component: AccountDetailComponent},
       { path: 'indices/account', component: AccountIndexListComponent},
       { path: 'indices/account/:id', component: AccountIndexDetailComponent},

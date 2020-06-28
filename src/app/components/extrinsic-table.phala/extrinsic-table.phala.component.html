@@ -193,7 +193,7 @@
   </header>
   <div class="card-table">
     <div class="phala-content">
-      {{ payload.value }}
+      <ngx-json-viewer [json]="payload.jsonObject"></ngx-json-viewer>
     </div>
   </div>
 </div>
@@ -222,7 +222,7 @@
   </header>
   <div class="card-table">
     <div class="phala-content">
-      {{ report.value }}
+      <ngx-json-viewer [json]="report.jsonObject"></ngx-json-viewer>
     </div>
   </div>
 </div>
@@ -251,6 +251,36 @@
   <div class="card-table">
     <div class="phala-content">
       {{ rawSigningCert.value }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="amount" class="card events-card">
+  <header class="card-header">
+    <div class="card-header-title">
+      <div>
+        Amount
+      </div>
+    </div>
+  </header>
+  <div class="card-table">
+    <div class="phala-content">
+      {{ amount.value }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="data" class="card events-card">
+  <header class="card-header">
+    <div class="card-header-title">
+      <div>
+        Data
+      </div>
+    </div>
+  </header>
+  <div class="card-table">
+    <div class="phala-content">
+      {{ data.value }}
     </div>
   </div>
 </div>

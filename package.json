@@ -37,6 +37,7 @@
     "lodash.mergewith": "^4.6.2",
     "messageformat": "^2.3.0",
     "mixin-deep": "^2.0.1",
+    "ngx-json-viewer": "^2.4.0",
     "ngx-jsonapi": "^2.1.15",
     "ngx-markdown": "^8.2.2",
     "ngx-timeago": "^1.0.4",

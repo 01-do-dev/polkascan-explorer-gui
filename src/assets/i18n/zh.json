@@ -68,7 +68,7 @@
 		"Role_Sudo": "Sudo",
 		"Role_Technical Committee member": "Technical Committee member",
 		"Role_Treasury": "财政",
-		"Role_Validator": "验证人",
+		"Role_Validator": "守门人",
 		"Roles": "Roles",
 		"Seconds a proposal": "Seconds a proposal",
 		"Sender": "来自",
@@ -184,7 +184,7 @@
 	"Block-Detail": {
 		"Block": "区块",
 		"Block \"{block}\" not found": "找不到区块 \"{block}\"",
-		"Block Author": "验证人",
+		"Block Author": "守门人",
 		"Block not found": "找不到区块",
 		"Block time": "区块时间",
 		"Call": "操作",
@@ -447,6 +447,7 @@
 		"item_Search": "搜索",
 		"item_Sessions": "会话控制",
 		"item_Sudo Accounts": "Sudo",
+		"item_Registered Workers": "已注册设备",
 		"item_TechCommProposals": "技术委员会提案",
 		"item_Techcomm Accounts": "技术委员会",
 		"item_Transactions": "交易",
@@ -455,7 +456,7 @@
 		"item_TreasuryProposals": "财政提案",
 		"item_Types": "类型",
 		"item_Upgrade_history": "升级历史记录",
-		"item_Validators": "验证人"
+		"item_Validators": "守门人"
 	},
 	"Network-overview": {
 		"Explore": "探索",
@@ -675,7 +676,7 @@
 		"Session": "会话",
 		"Start at block": "起始块",
 		"Total bonded": "全网冻结",
-		"Validators": "验证人"
+		"Validators": "守门人"
 	},
 	"session-list": {
 		"Blocks": "区块",
@@ -684,7 +685,7 @@
 		"Session ID": "会话ID",
 		"Sessions": "会话控制",
 		"Start at Block": "起始块",
-		"Validators": "验证人",
+		"Validators": "守门人",
 		"View next": "查看下一个"
 	},
 	"session-nominator-list": {
@@ -698,13 +699,13 @@
 		"Address": "地址",
 		"Bonded": "冻结",
 		"Bonded Total": "全网冻结",
-		"Bonded own stash": "验证人冻结",
+		"Bonded own stash": "守门人冻结",
 		"Commission": "扣留费率",
 		"Controller account": "控制账户",
-		"No nominators for this validator": "没有验证人的提名人",
+		"No nominators for this validator": "没有守门人的提名人",
 		"Nominators": "提名",
 		"Stash account": "主账户",
-		"Validator": "验证人",
+		"Validator": "守门人",
 		"for session": "会话控制",
 		"nominators": "提名"
 	},
@@ -713,7 +714,7 @@
 		"Details": "显示更多",
 		"No items": "无项目",
 		"Total bonded": "全网冻结",
-		"Validators for current session": "当前会话控制验证人"
+		"Validators for current session": "当前会话控制守门人"
 	},
 	"transaction-detail": {
 		"No transaction found for hash": "无法在哈希中找到交易",

@@ -21,6 +21,14 @@ const extrinsicRoutes = {
         listItem: Phala__ExtrinsicListItemComponent,
         detailPage: Phala__ExtrinsicTableComponent
       } as ExtrinsicRoute,
+      transfer_to_tee: {
+        listItem: Phala__ExtrinsicListItemComponent,
+        detailPage: Phala__ExtrinsicTableComponent
+      } as ExtrinsicRoute,
+      transfer_to_chain: {
+        listItem: Phala__ExtrinsicListItemComponent,
+        detailPage: Phala__ExtrinsicTableComponent
+      } as ExtrinsicRoute,
     }
   },
   default: {

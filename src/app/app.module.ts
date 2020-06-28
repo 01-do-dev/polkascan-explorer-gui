@@ -41,6 +41,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
 
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
+
 import { BlockListComponent } from './pages/block-list/block-list.component';
 import { BlockDetailComponent } from './pages/block-detail/block-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -216,6 +218,7 @@ export class MyClock extends TimeagoClock {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxJsonViewerModule,
     MarkdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

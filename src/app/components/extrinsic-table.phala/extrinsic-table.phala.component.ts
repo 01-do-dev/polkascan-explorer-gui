@@ -39,6 +39,8 @@ export class Phala__ExtrinsicTableComponent implements OnInit {
   report = null;
   signature = null;
   rawSigningCert = null;
+  amount = null;
+  data = null;
 
   @Input() extrinsicId: string = null;
   @Input() context: string = null;
@@ -56,6 +58,7 @@ export class Phala__ExtrinsicTableComponent implements OnInit {
         }
         if (i.name === 'payload') {
           this.payload = i;
+          this.payload.jsonObject = JSON.parse(i.value);
         }
       });
     }
@@ -66,12 +69,27 @@ export class Phala__ExtrinsicTableComponent implements OnInit {
         }
         if (i.name === 'report') {
           this.report = i;
+          this.report.jsonObject = JSON.parse(i.value);
         }
         if (i.name === 'signature') {
           this.signature = i;
         }
         if (i.name === 'raw_signing_cert') {
           this.rawSigningCert = i;
+        }
+      });
+    }
+    if (extrinsic.attributes.call_id === 'transfer_to_tee') {
+      (extrinsic.attributes.params || []).forEach(i => {
+        if (i.name === 'amount') {
+          this.amount = i;
+        }
+      });
+    }
+    if (extrinsic.attributes.call_id === 'transfer_to_chain') {
+      (extrinsic.attributes.params || []).forEach(i => {
+        if (i.name === 'amount') {
+          this.data = i;
         }
       });
     }
